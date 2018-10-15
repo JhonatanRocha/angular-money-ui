@@ -13,11 +13,13 @@ export class LancamentoCadastroComponent implements OnInit {
   ];
 
   categorias = [
+    { label: 'Selecione', value: null },
     { label: 'Alimentação', value: 1 },
     { label: 'Transporte', value: 2 }
   ];
 
   pessoas = [
+    { label: 'Selecione', value: null },
     { label: 'Kobe Bryant', value: 1 },
     { label: 'Tim Duncan', value: 2 },
     { label: 'Kevin Garnnet', value: 3 }

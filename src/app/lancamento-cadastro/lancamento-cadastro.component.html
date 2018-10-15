@@ -1,53 +1,70 @@
 <div class="container">
-  <form>
+  <form  #lancamentoForm="ngForm" autocomplete="off">
     <div class="ui-g">
       <div class="ui-g-12">
         <h1>Novo Lançamento</h1>
       </div>
 
       <div class="ui-g-12">
-        <p-selectButton [options]="tipos" #tipo></p-selectButton>
+        <p-selectButton [options]="tipos" name="tipo" #tipo="ngModel" ngModel required></p-selectButton>
+        <app-intera-message [control]="tipo" error="required" message="Informe um tipo de Lançamento"></app-intera-message>
+
       </div>
 
       <div class="ui-g-6 ui-md-3 ui-fluid">
         <label>Vencimento</label>
-        <p-calendar dateFormat="dd/mm/yy" [readonlyInput]="true" [showIcon]="true"></p-calendar>
+        <p-calendar dateFormat="dd/mm/yy" [readonlyInput]="true" [showIcon]="true" name="vencimento"
+           #vencimento="ngModel" ngModel required></p-calendar>
+        <app-intera-message [control]="vencimento" error="required" message="Informe a Data de Vencimento"></app-intera-message>
       </div>
 
       <div class="ui-g-6 ui-md-3 ui-fluid">
         <label>{{ tipo.value === 'RECEITA' ? 'Recebimento' : 'Pagamento' }}</label>
-        <p-calendar dateFormat="dd/mm/yy" [readonlyInput]="true" [showIcon]="true"></p-calendar>
+        <p-calendar dateFormat="dd/mm/yy" [readonlyInput]="true" [showIcon]="true" name="receitaPagamento"
+          #receitaPagamento="ngModel" ngModel required></p-calendar>
+        <app-intera-message [control]="receitaPagamento" error="required" message="Informe a Data de Pagamento / Recebimento"></app-intera-message>
       </div>
 
       <div class="ui-g-12 ui-md-9 ui-fluid">
         <label>Descrição</label>
-        <input pInputText type="text">
+        <input pInputText type="text" name="descricao"
+          ngModel #descricao="ngModel" required minlength="5">
+        <app-intera-message [control]="descricao" error="required" message="Informe uma Descrição"></app-intera-message>
+        <app-intera-message [control]="descricao" error="minlength" message="A Descrição deve ter no mínimo {{ descricao.errors?.minlength?.requiredLength }} caracteres"></app-intera-message>
       </div>
 
       <div class="ui-g-12 ui-md-3 ui-fluid">
         <label>Valor</label>
-        <input pInputText type="text" placeholder="0,00">
+        <input type="text" pInputText currencyMask placeholder="0,00" name="valor"
+          [options]="{ prefix: '', thousands: '.', decimal: ',', allowNegative: false}"
+          ngModel #valor="ngModel" required>
+          <app-intera-message [control]="valor" error="required" message="Informe um Valor"></app-intera-message>
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Categoria {{ categoriaSelecionada.value }}</label>
         <p-dropdown [options]="categorias" [autoWidth]="false"
-          placeholder="Selecione" #categoriaSelecionada></p-dropdown>
+          placeholder="Selecione" name="categoriaSelecionada" ngModel #categoriaSelecionada="ngModel" required></p-dropdown>
+        <app-intera-message [control]="categoriaSelecionada" error="required" message="Informe uma Categotria"></app-intera-message>
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Pessoa {{ pessoaSelecionada.value }}</label>
         <p-dropdown [options]="pessoas" [autoWidth]="false"
-          placeholder="Selecione" [filter]="true" #pessoaSelecionada></p-dropdown>
+          placeholder="Selecione" [filter]="true" name="pessoaSelecionada" #pessoaSelecionada="ngModel" ngModel required></p-dropdown>
+        <app-intera-message [control]="pessoaSelecionada" error="required" message="Informe uma Pessoa"></app-intera-message>
       </div>
 
       <div class="ui-g-12 ui-fluid">
         <label>Observação</label>
-        <textarea pInputTextarea rows="3"></textarea>
+        <textarea pInputTextarea rows="3" minlength="10" name="observacao" ngModel #observacao="ngModel" required></textarea>
+        <app-intera-message [control]="observacao" error="required" message="Informe uma Observação"></app-intera-message>
+        <app-intera-message [control]="observacao" error="minlength" message="A Observação deve ter no mínimo {{ observacao.errors?.minlength?.requiredLength }} caracteres"></app-intera-message>
       </div>
 
       <div class="ui-g-12">
-        <button pButton type="submit" label="Salvar"></button>
+        <button pButton type="submit" label="Salvar"
+          [disabled]="lancamentoForm.invalid"></button>
         <button pButton type="button" label="Novo" class="ui-button-info"></button>
         <a href="javascript:;">Voltar para a pesquisa</a>
       </div>
