@@ -8,20 +8,20 @@
       <div class="ui-g-12 ui-fluid">
         <label>Nome</label>
         <input pInputText type="text" ngModel name="nome" #nome="ngModel" minlength="5" required>
-        <!-- <app-intera-message [control]="nome" error="required" message="Informe um Nome"></app-intera-message>
-        <app-intera-message [control]="nome" error="minlength" message="O Nome deve ter no mínimo {{ nome.errors?.minlength?.requiredLength }} caracteres"></app-intera-message> -->
+        <app-intera-message [control]="nome" error="required" message="Informe um Nome"></app-intera-message>
+        <app-intera-message [control]="nome" error="minlength" message="O Nome deve ter no mínimo {{ nome.errors?.minlength?.requiredLength }} caracteres"></app-intera-message>
       </div>
 
       <div class="ui-g-12 ui-md-8 ui-fluid">
         <label>Logradouro</label>
         <input pInputText type="text" ngModel name="logradouro" #logradouro="ngModel" required>
-        <!-- <app-intera-message [control]="logradouro" error="required" message="Informe um Logradouro"></app-intera-message> -->
+        <app-intera-message [control]="logradouro" error="required" message="Informe um Logradouro"></app-intera-message>
       </div>
 
       <div class="ui-g-12 ui-md-4 ui-fluid">
         <label>Número</label>
         <input pInputText type="number" ngModel name="numeroEndereco" #numeroEndereco="ngModel" required>
-        <!-- <app-intera-message [control]="numeroEndereco" error="required" message="Informe o Número do Endereço"></app-intera-message> -->
+        <app-intera-message [control]="numeroEndereco" error="required" message="Informe o Número do Endereço"></app-intera-message>
       </div>
 
       <div class="ui-g-12 ui-md-4 ui-fluid">
@@ -32,25 +32,25 @@
       <div class="ui-g-12 ui-md-4 ui-fluid">
         <label>Bairro</label>
         <input pInputText type="text" ngModel name="bairroEndereco" #bairroEndereco="ngModel" required>
-        <!-- <app-intera-message [control]="bairroEndereco" error="required" message="Informe o Bairro do Endereço"></app-intera-message> -->
+        <app-intera-message [control]="bairroEndereco" error="required" message="Informe o Bairro do Endereço"></app-intera-message>
       </div>
 
       <div class="ui-g-12 ui-md-4 ui-fluid">
         <label>CEP</label>
         <p-inputMask mask="99999-999" ngModel name="cepEndereco" #cepEndereco="ngModel" required></p-inputMask>
-        <!-- <app-intera-message [control]="cepEndereco" error="required" message="Informe o CEP do Endereço"></app-intera-message> -->
+        <app-intera-message [control]="cepEndereco" error="required" message="Informe o CEP do Endereço"></app-intera-message>
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Cidade</label>
         <input pInputText type="text" ngModel name="cidadeEndereco" #cidadeEndereco="ngModel" required>
-        <!-- <app-intera-message [control]="cidadeEndereco" error="required" message="Informe a Cidade do Endereço"></app-intera-message> -->
+        <app-intera-message [control]="cidadeEndereco" error="required" message="Informe a Cidade do Endereço"></app-intera-message>
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Estado</label>
         <input pInputText type="text" ngModel name="estadoEndereco" #estadoEndereco="ngModel" required>
-        <!-- <app-intera-message [control]="estadoEndereco" error="required" message="Informe o Estado do Endereço"></app-intera-message> -->
+        <app-intera-message [control]="estadoEndereco" error="required" message="Informe o Estado do Endereço"></app-intera-message>
       </div>
 
       <div class="ui-g-12">

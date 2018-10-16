@@ -3,23 +3,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
 
 import { PessoasModule } from './pessoas/pessoas.module';
 import { LancamentosModule } from './lancamentos/lancamentos.module';
-import { InteraMessageComponent } from './intera-message/intera-message.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent,
-    InteraMessageComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    CoreModule,
     LancamentosModule,
-    PessoasModule
+    PessoasModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
